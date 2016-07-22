@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html ng-app="mycalculator">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="calculator.css">
+        <script type="text/javascript" src="angular.min.js"></script>
+        <script type="text/javascript" src="calculator.js"></script>
+		<title>Calculator</title>
+	</head>
+	<body>
+        <div id="mycalculator" ng-controller="CalculatorController">
+        <main>
+            <section class="Inc">
+            <div>
+            <h4> Incandescent</h4>    
+                <p>{{Inc_wattage}}w</p>
+                <p>{{Inc_cost}} per year </p>
+            </div>
+            </section>
+            
+            <section class="Hal"> 
+            <div>
+	       <h4>Halogen</h4>
+	       <p>{{Hal_wattage}}w</p>
+	       <p>{{Hal_cost}}per year</p>
+            </div>
+            </section>
+            
+            <section class="CFL"> 
+            <div>
+	       <h4>CFL</h4>
+	       <p>{{CFL_wattage}}w</p>
+	       <p>{{CFL_cost}}per year</p>
+            </div>
+            </section>
+      
+            <section class="LED"> 
+            <div>
+	       <h4>LED</h4>
+	       <p>{{LED_wattage}}w</p>
+	       <p>{{LED_cost}}per year</p>
+            </div>
+             </section>
+
+            </main>
+        
+        
+        <form>
+            <div>
+            <h4> Lumens</h4>
+            <p>Brightness<br> of bulb</p>
+            <select ng-change="calculate()"ng-model = "current_lumens" ng-options="o as o for o in lumen_options">
+           
+            </select>
+            </div>
+            <div>
+            <h4> kWh</h4>
+            <p>Kilowatt-<br>hour cost</p>
+            <input type="number" ng-change="calculate()" ng-model ="current_cost" value="{{current_cost}}">cents
+            </div>
+            <div>
+            <h4>Hours</h4>
+                <p>usage <br> per day</p>
+                <input type="number" ng-change="calculate()" ng-model ="current_hours" value="{{current_hours}}">
+            </div>
+            
+
+            
+            </form>
+        
+        </div>
+
+	</body>
+</html>
